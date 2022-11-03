@@ -29,6 +29,11 @@ class CartItem extends React.Component{
     }
 
     decreaseQty = () => {
+
+        const {qty} = this.state;
+
+        if(qty === 0) return;
+
         this.setState((prevState)=>{
                 return {
                     qty : prevState.qty - 1
@@ -68,6 +73,7 @@ class CartItem extends React.Component{
                     alt="delete" 
                     className="action-icons" 
                     src="https://cdn-icons-png.flaticon.com/512/3096/3096687.png"
+                    onClick={this.handleClick}
                     />
 
                     </div>
