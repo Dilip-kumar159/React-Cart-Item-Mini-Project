@@ -7,13 +7,33 @@ class CartItem extends React.Component{
         this.state = {
             title : 'HeadPhone',
             price : 1999,
-            qty : 5,
+            qty : 1,
             img : ''
         }
     }
 
     increaseQty = () => {
-        console.log('this.state ->', this.state);
+        // Inorder to increase the quantity there are two ways to do
+        // ->  1. Object form using setState
+        // -> This helps in changing any state
+        // this.setState({
+        //     qty : this.state.qty+1
+        // });
+
+        // -> 2. Using function this is used whenever the prev state is required
+        this.setState((prevState)=>{
+            return{
+                qty : prevState.qty + 1
+            }
+        });
+    }
+
+    decreaseQty = () => {
+        this.setState((prevState)=>{
+                return {
+                    qty : prevState.qty - 1
+                }           
+        });
     }
     render(){
         const {title, price, qty} = this.state;   
@@ -41,6 +61,7 @@ class CartItem extends React.Component{
                     alt="minus" 
                     className="action-icons" 
                     src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+                    onClick={this.decreaseQty}
                     />
 
                     <img 
