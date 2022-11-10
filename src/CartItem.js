@@ -1,47 +1,17 @@
 import React  from "react";
 
-class CartItem extends React.Component{
-     
-    // increaseQty = () => {
-    //     // Inorder to increase the quantity there are two ways to do
-    //     // ->  1. Object form using setState
-    //     // -> This helps in changing any state
-    //     // this.setState({
-    //     //     qty : this.state.qty+1
-    //     // });
+const CartItem = (props) => {
 
-    //     // -> 2. Using function this is used whenever the prev state is required
-    //     this.setState((prevState)=>{
-    //         return{
-    //             qty : prevState.qty + 1
-    //         }
-    //     });
-    // }
-
-    // decreaseQty = () => {
-
-    //     const {qty} = this.state;
-
-    //     if(qty === 0) return;
-
-    //     this.setState((prevState)=>{
-    //             return {
-    //                 qty : prevState.qty - 1
-    //             }           
-    //     });
-    // }
-    render(){
-        
-        const {title, price, qty} = this.props.product;   
+        const {title, price, qty} = props.product;   
         const {product, 
             onIncreaseQuantity, 
             onDecreaseQuantity, 
-            onDeleteProduct }  = this.props;
+            onDeleteProduct }  = props;
         
         return(
             <div className="cart-item">
                 <div className="left-block" style={styles.images}>
-                    <img/>
+                    {/* <img/> */}
                 </div>
 
                 <div className="right-block">
@@ -76,7 +46,6 @@ class CartItem extends React.Component{
             </div>
         );
     }
-}
 
 const styles = {
     images : {
